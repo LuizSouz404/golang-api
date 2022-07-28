@@ -1,4 +1,4 @@
-package middleware
+package service
 
 import (
 	"fmt"
@@ -24,7 +24,7 @@ type jwtService struct {
 	issuer    string
 }
 
-//NewJWTService methos is creates a new instance of JWTService
+//NewJWTService method is creates a new instance of JWTService
 func NewJWTService() JWTService {
 	return &jwtService{
 		issuer:    "123456",
