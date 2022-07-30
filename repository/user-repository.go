@@ -48,7 +48,13 @@ func (db *userConnection) FindByEmail(email string) entity.User {
 
 // InsertUser implements UserRepository
 func (db *userConnection) InsertUser(user entity.User) entity.User {
-	user.Password = hashAndSalt([]byte(user.Password))
+	if user.Password != "" {
+		user.Password = hashAndSalt([]byte(user.Password))
+	} else {
+		var tempUser entity.User
+		db.connection.Find(&tempUser, user.ID)
+		user.Password = tempUser.Password
+	}
 	db.connection.Save(&user)
 	return user
 }
