@@ -36,5 +36,5 @@ func main() {
 		userRoutes.PUT("/edit", userController.Update)
 	}
 
-	server.Run(":5000")
+	server.Run(":3000")
 }
