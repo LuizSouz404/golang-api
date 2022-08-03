@@ -9,7 +9,7 @@ type UserCreateDTO struct {
 
 // UserUpdateDTO is used by client when PUT update profile
 type UserUpdateDTO struct {
-	Id       string `json:"id" from:"id" binding:"required"`
+	Id       string `json:"id" from:"id"`
 	Name     string `json:"name" from:"name" binding:"required"`
 	Email    string `json:"email" from:"email" binding:"required" validate:"email"`
 	Password string `json:"password,omitempty" from:"password,omitempty" validate:"min:6"`
